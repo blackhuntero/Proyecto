@@ -213,7 +213,7 @@ public class Principal extends javax.swing.JFrame {
         conexion.Agregar(dato1);
         Datos1 = conexion.getDatos1();
         
-        if(conexion.Guardar(Datos1, 0)){
+        if(conexion.Grabar(Datos1, 0)){
             tabla = (DefaultTableModel) Datos.getModel();
             tabla.getDataVector();
             JOptionPane.showMessageDialog(this, "Se grabo correctamente",
@@ -262,18 +262,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
         // TODO add your handling code here:
-         Archivos conexion = new Archivos();
+        
+        Archivos conexion = new Archivos();
         Atributos dato1 = new Atributos();
         
         dato1.setNombre(Nombre.getText().toString());
-        dato1.setMatricula(Matricula.getText().toString());
         dato1.setCorreo(Correo.getText().toString());
+        dato1.setMatricula(Matricula.getText().toString());
         dato1.setPromedio(Promedio.getText().toString());
         
-        Datos1.set(posicion,dato1);
+        Datos1.set(posicion, dato1);
         
-        if (conexion.Guardar(Datos1, 1)){
-            tabla = (DefaultTableModel) Datos.getModel();
+        if(conexion.Grabar(Datos1,1)){
+            tabla =(DefaultTableModel) Datos.getModel();
             tabla.getDataVector().removeAllElements();
             JOptionPane.showMessageDialog(this, "Se actualizo correctamente", 
                     "Actualizado", JOptionPane.INFORMATION_MESSAGE);
@@ -281,6 +282,7 @@ public class Principal extends javax.swing.JFrame {
         } else{
             JOptionPane.showMessageDialog(this, "Error al Actualizar",
                     "Error", JOptionPane.ERROR_MESSAGE);
+            
         }
     }//GEN-LAST:event_ActualizarActionPerformed
 
@@ -294,23 +296,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-        Archivos conexion = new Archivos();
-        
-         Datos1.remove(posicion);
-        
+       Archivos conexion = new Archivos();
+       Datos1.remove(posicion);
        
-        
-        
-        if (conexion.Guardar(Datos1,1)){
-            tabla = (DefaultTableModel) Datos.getModel();
-            tabla.getDataVector().removeAllElements();
-            JOptionPane.showMessageDialog(this, "Se elimino correctamente", 
+       if(conexion.Grabar(Datos1, 1)){
+           tabla = (DefaultTableModel) Datos.getModel();
+           tabla.getDataVector().removeAllElements();
+           JOptionPane.showMessageDialog(this, "Se elimino correctamente", 
                     "Eliminado", JOptionPane.INFORMATION_MESSAGE);
             Cargar();
         } else{
             JOptionPane.showMessageDialog(this, "Error al Eliminar",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
+       
+       
+        
     }//GEN-LAST:event_EliminarActionPerformed
 
     /**
@@ -349,7 +350,7 @@ public class Principal extends javax.swing.JFrame {
     }
      private void Cargar(){
         Archivos conexion = new Archivos();
-        if(conexion.verificarArch){
+        if(conexion.verificarArch()){
             if(conexion.Leer()){
                 Datos1 = conexion.getDatos1();
                 CargaRegistrosTabla();

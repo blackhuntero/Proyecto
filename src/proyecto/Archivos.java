@@ -19,15 +19,16 @@ import java.util.List;
  * @author Mega_
  */
 public class Archivos {
-    private final String NombreArch="FinalTesoem.txt";
+    private final String NombreArch="Final.Tesoem";
+    
     List <Atributos> Datos = new ArrayList(); 
-    boolean verificarArch;
+    
     public boolean verificarArch(){
         File archivo = new File(NombreArch);
         if(!archivo.exists()) return false;
                 else return true;
     }
-    public boolean Guardar(List<Atributos> Datos2, int accion){
+    public boolean Grabar(List<Atributos> Datos2, int accion){
         FileWriter archivo;
         try{
             if (accion == 0){
