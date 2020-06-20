@@ -1,0 +1,4 @@
+{"Nombre":"jkgdakgda","Matricula":"162815313","Correo":"haidugaiugda","Promedio":"10"}
+{"Nombre":"haidgaiutd","Matricula":"313187631","Correo":"haidugaiugda","Promedio":"10"}
+{"Nombre":"18931731","Matricula":"adhaldgaoid","Correo":"khladgjaold","Promedio":"10"}
+{"Nombre":"18931731","Matricula":"dkhadoa","Correo":"khladgjaold","Promedio":"8"}
